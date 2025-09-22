@@ -699,8 +699,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./app-computer-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Basic computer literacy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./app-reg-cheat-sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Regression models cheat sheet</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Regression models cheat sheet</span></span></a>
   </div>
 </li>
       </ul>
@@ -886,7 +892,7 @@ Show me
 </section>
 <section id="treatment-contrasts-with-three-levels" class="level2" data-number="28.2">
 <h2 data-number="28.2" class="anchored" data-anchor-id="treatment-contrasts-with-three-levels"><span class="header-section-number">28.2</span> Treatment contrasts with three levels</h2>
-<p>Let’s proceed with modelling VOT. We will assume that VOT values follow a Gaussian distribution: as with reaction times, this is just a pedagogical step for you to get familiar with fitting models with categorical predictors, but other distribution families might be more appropriate. While for reaction times there are some recommended distributions (which you will learn about in <span class="quarto-unresolved-ref">?sec-lognorm</span>), there are really no recommendations for VOT, so a Gaussian distribution will have to do for now.</p>
+<p>Let’s proceed with modelling VOT. We will assume that VOT values follow a Gaussian distribution: as with reaction times, this is just a pedagogical step for you to get familiar with fitting models with categorical predictors, but other distribution families might be more appropriate. While for reaction times there are some recommended distributions (which you will learn about in <a href="ch-regression-lognorm.html" class="quarto-xref"><span>Chapter 31</span></a>), there are really no recommendations for VOT, so a Gaussian distribution will have to do for now.</p>
 <p>Before fitting the model, it is important to go through the model’s mathematical formula and to pay particular attention to how phonation type is coded using treatment contrasts. The <code>phonation</code> predictor has three levels: aspirated, voiced and voiceless. The order of the levels follows the alphabetical order. You will remember from <a href="ch-regression-cat.html" class="quarto-xref"><span>Chapter 27</span></a> that the mean of the first level of a categorical predictor ends up being the intercept of the model while the difference of the second level relative to the first is the slope. With a third level, the model estimates another “slope”, which is the difference between the third level and the first. With treatment contrasts, the second and higher levels of a categorical predictor are compared (or contrasted) with the first level. With the default alphabetical order, this means that the intercept of the model will tell us the mean VOT of aspirated stops, and the mean of voiced and voiceless stops will be compared to that of aspirated stops.</p>
 <p>An other important aspect of treatment coding of categorical predictors that we haven’t discussed is the number of indicator variables needed: the number of indicator variables is always the number of the levels of the predictor minus one (<span class="math inline">\(N - 1\)</span>, where <span class="math inline">\(N\)</span> is the number of levels). It follows that a predictor with three levels needs two indicator variables (<span class="math inline">\(N = 3\)</span>, <span class="math inline">\(3 - 1 = 2\)</span>). This is illustrated in <a href="#tbl-phon-treat" class="quarto-xref">Table&nbsp;<span>28.1</span></a>. For each observation, <span class="math inline">\(ph_\text{VD}\)</span> indicates if the observation is from a voiced stop (1) or not (0), and <span class="math inline">\(ph_\text{VL}\)</span> indicates if the observation is from a voiceless (unaspirated) stop (1) or not (0). Of course, if the observation if from an aspirated stop, that is neither a voiced nor a voiceless (unaspirated) stop, so both <span class="math inline">\(ph_\text{VD}\)</span> and <span class="math inline">\(ph_\text{VL}\)</span> are 0.</p>
 <div id="tbl-phon-treat" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -992,8 +998,8 @@ Table&nbsp;28.1: Treatment contrasts coding of the categorical predictor <code>p
 </div>
 <div class="callout-body-container callout-body">
 <strong>How many regression coefficients are there in the model above?</strong>
-<div id="radio_SMOTINIKKN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SMOTINIKKN" value=""> <span>2</span></label><label><input type="radio" autocomplete="off" name="radio_SMOTINIKKN" value="answer"> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_SMOTINIKKN" value=""> <span>4</span></label>
+<div id="radio_EVRLHIDFBZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EVRLHIDFBZ" value=""> <span>2</span></label><label><input type="radio" autocomplete="off" name="radio_EVRLHIDFBZ" value="answer"> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_EVRLHIDFBZ" value=""> <span>4</span></label>
 </div>
 </div>
 </div>
@@ -1009,8 +1015,8 @@ Table&nbsp;28.1: Treatment contrasts coding of the categorical predictor <code>p
 </div>
 <div class="callout-body-container callout-body">
 <strong>Based on the density plots of VOT you made above, which of the following sets of expectations makes sense?</strong>
-<div id="radio_UQNTNQPIMJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UQNTNQPIMJ" value=""> <span><span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span> should have negative values.</span></label><label><input type="radio" autocomplete="off" name="radio_UQNTNQPIMJ" value="answer"> <span><span class="math inline">\(\beta_0\)</span> should have positive values and <span class="math inline">\(\beta_1, \beta_2\)</span> should have negative values.</span></label><label><input type="radio" autocomplete="off" name="radio_UQNTNQPIMJ" value=""> <span><span class="math inline">\(\beta_0, \beta_1\)</span> should have positive values, <span class="math inline">\(\beta_2\)</span> should have negative values.</span></label>
+<div id="radio_SSOEBIUCUP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SSOEBIUCUP" value=""> <span><span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span> should have negative values.</span></label><label><input type="radio" autocomplete="off" name="radio_SSOEBIUCUP" value="answer"> <span><span class="math inline">\(\beta_0\)</span> should have positive values and <span class="math inline">\(\beta_1, \beta_2\)</span> should have negative values.</span></label><label><input type="radio" autocomplete="off" name="radio_SSOEBIUCUP" value=""> <span><span class="math inline">\(\beta_0, \beta_1\)</span> should have positive values, <span class="math inline">\(\beta_2\)</span> should have negative values.</span></label>
 </div>
 </div>
 </div>
