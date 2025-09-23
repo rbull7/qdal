@@ -20,7 +20,7 @@ Let's zoom in on the [research process]{.smallcaps}, as represented in @fig-res-
 
 ![A conceptual model of research process.](img/res-process.png){#fig-res-process fig-align="center"}
 
--   **Context**: the research context includes several aspects of the research process, including the background (i.e. the previous literature and current knowledge) and the rational of the study (from the general topic to specific research questions/hypotheses).
+-   **Context**: the research context includes several aspects of the research process, including the background (i.e. the previous literature and current knowledge) and the rationale of the study (from the general topic to specific research questions/hypotheses).
 
 -   **Data acquisition**: this is the process of gathering data to be used in the study. Data acquisition covers many different types of processes, from experimental set-ups to corpus queries.
 
