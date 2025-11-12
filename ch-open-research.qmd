@@ -5,7 +5,7 @@
 @sec-res-cycle introduced the concept of Questionable Research Practices: these are practices that, whether intentionally or not, negatively affect the research enterprise [@simmons2011; @morin2015; @flake2020].
 These, combined with theoretical underspecification typical of most research [@devezer2021; @scheel2022], have contributed towards what we can call a "research crisis" [@pashler2012; @gelman2014a; @schooler2014; @fanelli2017; @amrhein2019; @starns2019; @yarkoni2022].
 In response to this research crisis, or crises, researchers have initiated a movement known as Open Research [@munafo2017; @cruwell2019], also called Open Scholarship and Open Science (some researchers find Open Science less inclusive, because of how loaded the term "science" is, so Open Research or Scholarship are now preferred).
-Open Research is a movement that stresses the importance of a more honest and transparent research by promoting a series of research principles and by warning from common, although not necessarily intentional, questionable practices and misconceptions.
+Open Research is a movement that stresses the importance of more honest and transparent research by promoting a series of research principles and by warning from common, although not necessarily intentional, questionable practices and misconceptions.
 This chapter explains what Open Research entails.
 See @cruwell2019 for a general overview and @casillas2025 for Open Research in linguistics.
 
@@ -25,7 +25,7 @@ When an independent researcher takes the data of the original study, applies the
 There is also a more specific meaning, which is computational reproducibility, by which the same data and computer code produce the same results.
 If independent researchers use the same data collection protocol and apply the same analysis workflow, but they collect new data and obtain the same results, we say the original results are **replicable**.
 With the same data but a different analysis pipeline, the original results are **robust** if they are the same as the one obtained with a different pipeline.
-Finally, with new data and a different analysis the results are **generalisable** if you obtain the same results of the original study.
+Finally, with new data and a different analysis the results are **generalisable** if you obtain the same results as the original study.
 
 Together, reproducibility, replicability, robustness and generalisability are necessary (but not sufficient) criteria to ensure reliable results.
 Unfortunately, the current situation in terms of reproducibility and replicability is dire: the level of (computational) reproducibility is low in many fields, including linguistics [@bochynska2023] and the replicability success rates are low.
@@ -62,7 +62,7 @@ This is peer-reviewed to check that the original protocol has been followed by t
 
 ![The process of the Registered Report article format.](img/registered_reports.png){#fig-rr fig-align="center"}
 
-Register Reports work for a variety of research types, from quantitative to qualitative, from exploratory to corroboratory.
+Registered Reports work for a variety of research types, from quantitative to qualitative, from exploratory to corroboratory.
 Note that authors do have the chance to perform analyses that were not planned in the Stage 1 manuscript, as long as they are clearly labelled as exploratory or not pre-registered.
 There is hope that Registered Reports can positively contribute to making research more robust and mitigate the effects of the researchers' degrees of freedom.
 Of course, they are not a one-shot solution, but just one tool among many that have been proposed to improve the quality of research.
@@ -70,14 +70,14 @@ Of course, they are not a one-shot solution, but just one tool among many that h
 ## Version control systems
 
 A version control system is software that allows users to take incremental "snapshots" of computer files and to revert to any snapshot in time.
-Versioning systems are primarily thought for programming work (developing software) but they have been increasingly adopted in (knowledge-oriented, non-applied) research given that a lot of the research process is based on computational aspects (managing data, analysing data with code, writing manuscripts, etc).
+Versioning systems are primarily thought to be for programming work (developing software) but they have been increasingly adopted in (knowledge-oriented, non-applied) research given that a lot of the research process is based on computational aspects (managing data, analysing data with code, writing manuscripts, etc).
 A commonly used version control system is git (<https://git-scm.com>).
 git allows you to track changes in files, commit those changes into "snapshots" and also maintaining multiple branches of the same repository.
 Note that git is software that runs on your computer.
 git repositories can be shared and managed online with other services, like GitHub (<https://github.com>) or GitLab (<https://about.gitlab.com>).
 The code and the website of this textbook are hosted on GitHub: <https://github.com/stefanocoretta/qdal>.
 
-One of the advantages of using a version control system is that it helps ensuring computational reproducibility.
+One of the advantages of using a version control system is that it helps ensure computational reproducibility.
 Everything needed for code to be run is managed by the version control system and independent researchers can access and clone the versioned repository and re-use the code.
 git is very efficient with textual files, of the kind you would use for code, but it is less ideal with large data files.
 The software Data Version Control (DVC, <https://dvc.org>) was developed to more efficiently version larger files.
