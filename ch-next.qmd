@@ -1,25 +1,165 @@
 # What's next? {#sec-next}
 
-You made it! You completed your journey in learning the basics of quantitative research methods, R and Open Research principles and practices. This is not the end, of course. Becoming proficient in quantitative methods requires years of practices and one semester is just not enough. While everything we covered in this course is a necessary pre-requisite, most research will require you to learn much much more.
+![](/img/badge-stats.png) ![](/img/badge-r.png)
 
-This section gives you a glimpse of other topics you could learn about and topics you might need for your research (including your dissertation/thesis if you will be doing that soon). For each topic I will point you to some resources, but note that in some cases you might have to do some preliminary readings to be able to consume the contents of the linked resources. I am planning to add extra chapters in this textbook to cover these topics in the future, but until I have time to do that, you will have to make do with external resources.
+You made it!
+You completed your journey in learning the basics of quantitative research methods, R and Open Research principles and practices.
+This is not the end, of course.
+Becoming proficient in quantitative methods requires years of practices and one semester is just not enough.
+While everything we covered in this course is a necessary pre-requisite, most research will require you to learn much much more.
+
+This section gives you a glimpse of other topics you could learn about and topics you might need for your research (including your dissertation/thesis if you will be doing that soon).
+For each topic I will point you to some resources, but note that in some cases you might have to do some preliminary readings to be able to consume the contents of the linked resources.
+I am planning to add extra chapters in this textbook to cover these topics in the future, but until I have time to do that, you will have to make do with external resources.
 
 ## Further interactions
 
+In @sec-regression-interaction, you learned how to model an interaction between two categorical predictors in data from @winter2012: gender and attitude (and their effect on mean f0).
+While categorical/categorical interactions are quite straightforward, the other combinations are also very common but they tend to be more involved because of the presence of a numeric predictor: the other two-way interactions are categorical/numeric and numeric/numeric.
+Interactions are not restricted to two-way combinations: in certain cases you might need three-way, four-way interactions or higher.
+
+Linguistic theory should determine which interactions are needed in your model, but when in doubt or when doing exploratory research it doesn't hurt to include interactions so that these can be estimated.
+The posterior of the interaction will provide you with an estimate of the interaction.
+Sometimes it is fine to assume that the estimate of one predictor is independent from other predictors and in that case you can do without interactions.
+In other cases your research question will require you to include interaction.
+There isn't a cookbook for interactions and you will just have to think about them on a case-by-case basis.
+
+To learn more about interactions, see @mcelreath2020 [Ch. 8].
+Within the Null Ritualistic approach, it has become popular to drop interactions if they are not significant, but this is very problematic because a non-significant interaction doesn't automatically mean that there isn't one (the usual problem of *p*-values).
+
 ## Multilevel regression models (aka mixed-effects)
 
-## Causal inference
+Most research in linguistics involves multiple observations from different participants, items, texts, corpora, schools, and so on (this design is known as *repeated measures*).
+Unless you instruct them so, regression models will not be aware of hierarchy in the data (like different participants or texts).
+Instead, the model will work on the assumption that each data point is independent.
+Estimates obtained through regression modelling will be biased because of this wrong assumption.
+A solution is to include variables like participant or item in the model as "varying" terms.
 
-## Prior probability distributions
+Models with variables entered as varying terms are known variably as multilevel, hierarchical, nested, mixed-effects, random-effects models.
+As always, don't let the different terms fool you: they all refer to the same type of regression model.
+In linguistics, it is common to call them *mixed-effects linear* models, but they are not a special class of regression models.
+Varying terms are also commonly called "random effects".
+However, randomness is not a characterising feature of varying terms and the same variable could in principle be entered as a varying or constant term depending on the study design and research question.
+
+To learn about hierarchical models and varying terms, see @mcelreath2020 [Ch 13-14], @nalborczyk2019, @burkner2018 and @veenman2023.
+For an introduction to multilevel models fitted within the Null Ritual approach, see @winter2013.
+On terminology and definitions, see the following blog post <https://stefanocoretta.github.io/posts/2021-03-15-on-random-effects/> and @gelman2005.
+
+## Causal inference {#sec-next-causal}
+
+One maxim any researcher knows about is "correlation is not causation".
+This is the idea that statistical correlation between two or more variables (e.g. *x* and *y* are correlated) should not be interpreted causally (*x* causes *y*).
+However, in explanatory research we are truly not just interested in correlations, but explanatory questions are ultimately about causation.
+The language we use also reflects a causal interest: "the effect of *x* on *y*".
+For example, when we investigate whether inclusive language policies improve language revitalisation efforts, we are interested in the *causal* relationship between inclusive language policies and language revitalisation, not just in their numeric correlation.
+
+Correlation is not causation, unless one adopts a causal approach.
+**Causal Inference** is one such approach, based on work by Judea Pearl on *do-*calculus (a branch of mathematics and logic for the estimation of causal effects).
+An applied extension of *do*-calculus is the use of **Directed Acyclic Graphs**.
+These graphs are created by the research to layout the causal relationships between variables.
+Estimation without causal inference can be biased, because of relationships between variables like mediation, confounding and colliding.
+
+**Mediation** is when a variable $M$ is caused by $X$ and it causes $Y$ but $X$ doesn't directly cause $Y$: $X \rightarrow M \rightarrow Y$.
+If you fit a regression model $Y \sim X$ you might find a correlation between $X$ and $Y$ even if there is none because of the mediating effect of $M$.
+In other words, once you account for the effect $X$ on $M$, $X$ has no further direct effect on $Y$.
+Confounding is when a variable $C$ causes both $X$ and $Y$ but $X$ and $Y$ have no causal relationship: $X \leftarrow C \rightarrow Y$.
+A regression model $Y \sim X$ will find a correlation between $X$ and $Y$ even if there is none, because of the confounding effect of $C$.
+Colliding is conceptually the reverse of confounding: $X$ and $Y$ both cause $K$, but they are not directly causally linked, $X \rightarrow K \leftarrow Y$.
+A regression model $Y \sim X$ will find a correlation between $X$ and $Y$ even if there is none.
+
+To learn about Causal Inference and Directed Acyclic Graphs, see @mcelreath2020 Ch 5-6 (and subsequent).
+The YouTube video-lectures by McElreath are also useful: <https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus>.
+Check out @rohrer2018 for a paper-format introduction.
+
+## Prior probability distributions and sensitivity analyses {#sec-next-priors}
+
+You have encountered priors in @sec-bayes, but we have been using brms default priors through the course.
+In most context the default priors will be enough, but it is worth thinking about priors even when you use the default priors.
+
+Priors are probability distributions, like the other probability distributions you've been working with so far.
+They define the probability of a specific model parameter taking certain values: in other words, you define a probability distribution over a range of values to express your prior belief in relation to which values you believe the parameter could take.
+In the simplest of cases, prior probability distributions can be expressed as Gaussian distributions, where you specify a prior mean and a standard deviation for a specific parameter.
+Each model parameter requires a prior (brms sets default priors for any parameter the model you are fitting has).
+For example, for a simple Gaussian model of reaction times (you have learned in @sec-regression-lognorm that RTs are not Gaussian, but let's use the Gaussian distribution to make things easier) $RT \sim Gaussian(\mu, \sigma)$, we could set the following priors for $\mu$ and $\sigma$:
+
+$$
+\begin{aligned}
+\mu & \sim Gaussian(1000, 250)\\
+\sigma & \sim Gaussian_+(0, 250)
+\end{aligned}
+$$
+
+The prior for the mean $\mu$, $Gaussian(1000, 250)$ states that we believe the mean RTs to be between 500 and 1500 ms at 95% confidence.
+This is because the 95% interval of $Gaussian(1000, 250)$ is approximately $[500, 1500]$.
+The 95% central interval of a Gaussian distribution is defined approximately by the lower limit $\mu - 2 \cdot \sigma$ and the upper limit $\mu + 2 \cdot \sigma$, so $1000 - 2 \times 250$ and $1000 + 2 \times 250$.[^ch-next-1]
+As for the prior of $\sigma$, note that standard deviation can only be positive, so we constrain the prior distribution to positive values only (that's what the subscript $+$ is doing in $Gaussian_+$; this is a half-Gaussian distribution, truncated at 0).
+The 95% interval of this distribution is \[0, 500\] ms (the lower limit is 0 because it is a half-Gaussian distribution, the upper limit is $\mu + 2 \cdot \sigma$).
+
+[^ch-next-1]: Technically, the lower limit $\mu - 1.96 \cdot \sigma$ and the upper limit $\mu + 1.96 \cdot \sigma$.
+
+You can set these priors when fitting a model with `brm()`:
+
+``` r
+brms(
+  RT ~ 1,
+  family = gaussian,
+  prior = c(
+    prior(normal(1000, 250), class = Intercept),
+    prior(normal(0, 250), class = sigma)
+  )
+)
+```
+
+The best way to learn about priors is to read through @mcelreath2020 (there isn't a single chapter that deals with them, instead they are explained throughout the book).
+Practical suggestions for common priors can be found in [@standevelopmentteam2025; also see @mikkola2024, @bockting2024 and @gelman2006 for a more detailed treatment].
+
+Common steps in Bayesian analyses related to priors specification are prior predictive checks [or simulations, see @mcelreath2020, Ch. 4 and subsequent] and prior sensitivity analyses, like those based on posterior shrinkage and the posterior *z-*score [@betancourt2018].
+Also see @gelman2020 and @schad2021 for an overview of the Bayesian workflow and @veenman2023 for prior specification in the context of hierarchical/multilevel/mixed-effects models.
 
 ## Further distribution families
 
+The textbook covered the Gaussian, Bernoulli and log-normal (log-Gaussian) distribution families.
+Remember that the distribution family of a regression model is decided by the nature of the outcome variable.
+Other common families are the beta (for 0-1 variables), Poisson (for counts), ordinal (for Likert-scale data), categorical (for multinomial variables, i.e. variables with more than two unordered levels).
+See @sec-reg-cheat-sheet for resources on these and other families.
+
 ## Non-linear modelling
 
-## Sample size determination
+Regression models are built on the equation of a straight line.
+This is true even when it looks as if we are modelling non-linear effects in models like Bernoulli or Poisson.
+The predicted relationships between numeric predictors and Bernoulli or Poisson outcomes looks non-linear because the linearity is applied to the linear term of the model (the parameter that is expressed with a linear equation).
+For example, in Bernoulli models the linear equation is applied to the logit transformation of the parameter *p*.
+
+However, all regression models assume a linear relationship between a predictor and an outcome at the level of the linear term.
+In some cases, a linear relationship might not make sense.
+For example, if you are modelling change in probability of a morphological form across time, it is possible that the change is not linear even in log-odds, and maybe the probability first rises but then gets lower.
+This type of non-linear relationship can be modelled in Bayesian regression models using smoothers, `s()` in the model's formula.
+
+You can check out the tutorials on non-linear models and smoothers with brms in @franke2025 [Ch 10].
+
+## Sample size determination {#sec-next-size}
+
+Determining sample size is an important step in any quantitative analysis.
+Sample size determination is necessary to ensure one has enough data to estimate parameters to the desired level of precision.
+In the Null Ritual approach, sample size determination is based on the so-called "power analysis": this type of analysis lets you calculate the sample size required for you to be able to detect a significant effect based on a pre-determined minimum effect size.
+Check @green2016 and [@brysbaert2018; also see @brysbaert2020 for bilingualism research].
+
+A framework for the justification of sample size can be found in @lakens2021 (while it focusses on Null Hypothesis Significance Testing, it can be helpful for Bayesian approaches too).
+For a simple way to determine sample size based on pre-existing data, check out @coretta2022a.
+A theoretical discussion of sample size for clinical trials is available in @halpern2001.
 
 ## Dimensionality reduction approaches
 
+Regression models work best when you have a clear theoretical view on the variables of interest.
+Some times, you might be working with multi-dimensional data, with a large number of variables and not enough theory to be able to determine which variables are relevant (for example, as determined through Causal Inference).
 
+In these cases, it is useful to reduce the dimensionality of the data: in other words, it is useful to capture covariance between variables using dimensionality reduction approaches, like Principal Component Analysis, Multiple Correspondence Analysis and and Cluster Analysis.
 
-
+Principal Component Analysis (PCA) finds numeric components, called principal components (PCs), that can capture the covariation of the numeric variables in the data set.
+The scores of the principal components capturing variation in the data can be used for further analysis.
+You can find information about PCA [here](https://www.sthda.com/english/articles/index.php?url=/31-principal-component-methods-in-r-practical-guide/#google_vignette).
+Multiple Correspondence Analysis (McA) is the discrete equivalent of PCA, i.e. it can be used with discrete/categorical variables.
+See [here](https://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/114-mca-multiple-correspondence-analysis-in-r-essentials/) for an introduction.
+Another dimensionality reduction technique is Cluster Analysis (CA, aka hierarchical clustering).
+[This tutorial](https://www.datanovia.com/en/blog/cluster-analysis-in-r-practical-guide/) guides you through a CA in R.
+For a detailed treatment of these techniques see @kassambara2017a and @kassambara2017.

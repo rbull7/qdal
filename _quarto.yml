@@ -72,7 +72,10 @@ book:
       - ch-regression-interaction.qmd
   - part: Week 10
     chapters:
+      - ch-learned.qmd
       - ch-next.qmd
+      - ch-workflow.qmd
+      - ch-end.qmd
   - references.qmd
   appendices:
     - app-computer-basics.qmd
@@ -97,6 +100,9 @@ format:
     link-external-newwindow: true
   pdf:
     pdf-engine: xelatex
+    papersize: a4paper
+    margin-left: 2cm
+    margin-right: 2cm
 
 callout-icon: false
 
