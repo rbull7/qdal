@@ -4,7 +4,7 @@
 
 The previous chapter explained how to include two predictors in a regression model and how to interpret the results of the model.
 But we were left wondering: what if the effect of attitude differs between the two genders?
-In this chapter we will talk about **interactions**: regression models can estimated different effects of one predictor depending on the levels of the other other predictor, by adding a so-called *interaction term*.
+In this chapter we will talk about **interactions**: regression models can estimate different effects of one predictor depending on the levels of the other predictor, by adding a so-called *interaction term*.
 Keep reading to learn about them.
 
 ## Is the effect of attitude modulated by gender?
@@ -81,7 +81,7 @@ Let's work out the formula of $\mu$ depending on the combinations gender and att
 We get this because when either $gen_\text{M}$ or $att_\text{POL}$ are 0, the corresponding $\beta$ coefficient gets dropped from the equation.
 Importantly, notice how for male/polite we need all four coefficients.
 For male and polite mean f0, we need the coefficient for male $\beta_1$ and that for polite $\beta_2$, but also the interaction coefficient $\beta_3$ because in this combination $gen_\text{M}$ and $att_\text{POL}$ are both 1.
-You can thing of $\beta_3$ as the "adjustment" to the individual effects of gender = male and attitude = polite.
+You can think of $\beta_3$ as the "adjustment" to the individual effects of gender = male and attitude = polite.
 In other words, the interaction coefficient $\beta_3$ tells you how the combined effects of gender = male and attitude = polite differ from their simple sum (i.e. $\beta_1 + \beta_2$).
 
 ::: callout-warning
@@ -138,7 +138,7 @@ summary(f0_bm_int)
 -   `genderM:attitudepol` is $\beta_3$: this is the interaction coefficient.
     This coefficient tells you the *adjustment* you have to make to the effects of gender and attitude (so $\beta_1 +\beta_2 + \beta_3$), on top of what is predicted by the additive effects of gender and attitude (so $\beta_1 + \beta_2$).
     According to the model, the difference between female informal and male polite speech differs from the additive effect of gender and attitude by -14 to +27 Hz, at 95% confidence.
-    The 95% CrI \[-14, +27\] spans both negative and positive values: there is uncertainty as to whether the effect of attitude differs in the two genders (and, symmetrically, whether the effect of gender differs in informal and polite speech), and as to weather the difference is positive or negative.
+    The 95% CrI \[-14, +27\] spans both negative and positive values: there is uncertainty as to whether the effect of attitude differs in the two genders (and, symmetrically, whether the effect of gender differs in informal and polite speech), and as to whether the difference is positive or negative.
     The interval might indicate that a positive difference is more likely, given that the interval spans a wider range of positive values than negative values.
 
 Let's extract the model's draws and process them to get summary measures and relevant plots.
