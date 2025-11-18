@@ -10,7 +10,7 @@ You can use this as a final check that you didn't miss anything important.
 
 -   The research process is made up of context, data acquisition, data analysis, communication.
 
--   Empirical research can be placed along two research axes (descriptive/explanatory, exploratory/corroboratory) and it can have on or more research objectives (establish facts, improve fit of framework to facts, compare fit of different frameworks).
+-   Empirical research can be placed along two research axes (descriptive/explanatory, exploratory/corroboratory) and it can have one or more research objectives (establish facts, improve fit of framework to facts, compare fit of different frameworks).
 
 -   The research context spans everything between the more general research topic down to the more specific research questions and hypotheses.
 
@@ -57,7 +57,7 @@ You can use this as a final check that you didn't miss anything important.
 -   Bayes' Theorem states that the posterior probability distribution is proportional to the product of the prior probability distribution and the likelihood of the data (i.e. the probability distribution of the data given the prior probability distribution).
 
 -   <u>Cr</u>edible <u>I</u>ntervals (CrI) tell you the range of values of the posterior probability distribution that are within a certain probability level.
-    For example, a 80% CrI tells you that there is an 80% probability or confidence that the parameter's value is within that interval.
+    For example, an 80% CrI tells you that there is an 80% probability or confidence that the parameter's value is within that interval.
 
 -   Regression models are statistical models based on the equation of a line.
 
@@ -96,7 +96,7 @@ y & \sim LogNormal(\mu, \sigma)\\
 \end{aligned}
 $$
 
--   Categorical predictors have to be numerically code.
+-   Categorical predictors have to be numerically coded.
     The default coding system in regression models is treatment contrasts, where predictors are coded using dummy variables (`0/1`).
     The number of dummy variables is `N-1` where `N` is the number of levels in the predictor.
 
